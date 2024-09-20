@@ -13,9 +13,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  selenium-test:
 
     runs-on: ubuntu-latest
+
+    services:
+      chrome:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
 
     steps:
     - uses: actions/checkout@v4
@@ -25,9 +31,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean install
-    - name: Run tests
+    - name: Install dependencies
+      run: mvn install
+    - name: Run Selenium tests
       run: mvn test
       
 
