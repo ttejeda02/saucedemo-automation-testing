@@ -1,5 +1,6 @@
 package test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,6 +16,7 @@ public class HappyPathTest {
     private WebDriver driver;
     @BeforeMethod(alwaysRun = true)
     public void setUp(){
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
 
