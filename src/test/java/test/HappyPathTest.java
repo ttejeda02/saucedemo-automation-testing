@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +18,13 @@ public class HappyPathTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Ejecutar en modo headless
+        options.addArguments("--no-sandbox"); // Desactivar el sandbox
+        options.addArguments("--disable-dev-shm-usage"); // Usar espacio de memoria compartido
+        options.addArguments("--remote-debugging-port=9222"); // Para habilitar la depuración remota
+        driver = new ChromeDriver(options);
+
     }
 
     @Test (priority = 1)
