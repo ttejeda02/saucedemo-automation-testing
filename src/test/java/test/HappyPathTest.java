@@ -19,16 +19,16 @@ public class HappyPathTest {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Ejecutar en modo headless
-        options.addArguments("--no-sandbox"); // Desactivar el sandbox
-        options.addArguments("--disable-dev-shm-usage"); // Usar espacio de memoria compartido
-        options.addArguments("--remote-debugging-port=9222"); // Para habilitar la depuración remota
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-debugging-port=9222");
         driver = new ChromeDriver(options);
 
     }
 
     @Test (priority = 1)
-    public void loginTest(){
+    public void happyPathTest(){
         //login page
         LoginPage loginPage = new LoginPage(driver);
         String homePageUrl = loginPage.getCurrentUrl();
