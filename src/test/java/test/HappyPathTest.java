@@ -33,7 +33,7 @@ public class HappyPathTest {
         LoginPage loginPage = new LoginPage(driver);
         String homePageUrl = loginPage.getCurrentUrl();
 
-        User user = UserCreator.createUserWithUserData();
+        User user = UserCreator.createStandardUserWithUserData();
         loginPage.accountLogin(user);
         String inventoryPageUrl = loginPage.getCurrentUrl();
 
