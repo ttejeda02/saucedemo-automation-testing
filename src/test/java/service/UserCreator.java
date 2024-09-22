@@ -28,9 +28,9 @@ public class UserCreator {
         return new User(
                 TEST_USERNAME_STANDARD,
                 TEST_PASSWORD,
-                "",
-                "",
-                0
+                TEST_FIRST_NAME,
+                TEST_LAST_NAME,
+                TEST_POSTAL_CODE
         );
     }
 
@@ -38,9 +38,9 @@ public class UserCreator {
         return new User(
                 TEST_USERNAME_LOCKED_OUT_USER,
                 TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
+                "",
+                "",
+                0
         );
     }
 
