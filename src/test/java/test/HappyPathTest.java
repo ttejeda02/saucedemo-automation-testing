@@ -1,34 +1,16 @@
 package test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import model.User;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import service.UserCreator;
 
 
-public class HappyPathTest {
-    private WebDriver driver;
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-debugging-port=9222");
-        driver = new ChromeDriver(options);
-
-    }
+public class HappyPathTest extends BaseTest {
 
     @Test (priority = 1)
-    public void happyPathTest(){
+    public void happyPathTest() {
         //login page
         LoginPage loginPage = new LoginPage(driver);
         String homePageUrl = loginPage.getCurrentUrl();
@@ -66,10 +48,5 @@ public class HappyPathTest {
         CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
         Assert.assertEquals(checkoutOverviewPage.getTotal(), "103.65");
         checkoutOverviewPage.finishCheckout();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void quitBrowser(){
-        driver.quit();
     }
 }
