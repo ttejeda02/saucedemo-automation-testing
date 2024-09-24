@@ -22,7 +22,7 @@ public class SaveProductsInCartTest extends BaseTest {
         String[] products = cartPage.getProductInCart();
         String[] expectedProducts = {"Sauce Labs Onesie"};
 
-        Assert.assertEquals(expectedProducts, products);
+        Assert.assertArrayEquals("The products don't match", expectedProducts, products);
     }
 
     @Test
@@ -39,6 +39,29 @@ public class SaveProductsInCartTest extends BaseTest {
         CartPage cartPage = new CartPage(driver);
         String[] products = cartPage.getProductInCart();
         String[] expectedProducts = {"Sauce Labs Bike Light", "Sauce Labs Onesie", "Test.allTheThings() T-Shirt (Red)"};
-        Assert.assertEquals(expectedProducts, products);
+        Assert.assertArrayEquals("The products doesn't match", expectedProducts, products);
+    }
+
+    @Test
+    public void saveSixProductsAndRemoveFourInCart () {
+        User user = UserCreator.createStandardUserWithoutUserData();
+        UserActionsUtil.login(driver, user);
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.clickAddToCartSauceLabsBackpack();
+        inventoryPage.clickAddToCartSauceLabsFleeceJacket();
+        inventoryPage.clickAddToCartSauceLabsOnesie();
+        inventoryPage.clickAddToCartTestAllthingsTShirt();
+        inventoryPage.clickAddToCartSauceLabsBolt();
+        inventoryPage.clickAddToCartSauceLabsBikeLight();
+        inventoryPage.goToTheCartPage();
+
+        CartPage cartPage = new CartPage(driver);
+        cartPage.removeSauceLabsOnesieInCart();
+        cartPage.removeTestAllTheThingsTShirtInCart();
+        String[] products = cartPage.getProductInCart();
+        String[] expectedProducts = {"Sauce Labs Backpack", "Sauce Labs Fleece Jacket", "Sauce Labs Bolt T-Shirt", "Sauce Labs Bike Light"};
+
+        Assert.assertArrayEquals("The products doesn't match", expectedProducts, products);
     }
 }

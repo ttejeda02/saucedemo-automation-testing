@@ -21,8 +21,14 @@ public class CartPage {
     @FindBy (id = "remove-sauce-labs-fleece-jacket")
     WebElement removeSauceLabsFleeceJacketInCart;
 
+    @FindBy (id = "remove-sauce-labs-bike-light")
+    WebElement removeSauceLabsBikeLightInCart;
+
     @FindBy (id = "remove-sauce-labs-onesie")
     WebElement removeSauceLabsOnesieInCart;
+
+    @FindBy (id = "remove-test.allthethings()-t-shirt-(red)")
+    WebElement removeTestAllThingsTShirtInCart;
 
     @FindBy (id = "checkout")
     WebElement checkoutWebPageButton;
@@ -52,6 +58,14 @@ public class CartPage {
 
     public void removeSauceLabsOnesieInCart() {
         removeSauceLabsOnesieInCart.click();
+    }
+
+    public void removeTestAllTheThingsTShirtInCart() {
+        removeTestAllThingsTShirtInCart.click();
+    }
+
+    public void removeSauceLabsBikeLightInCart() {
+        removeSauceLabsBikeLightInCart.click();
     }
 
     public void goToCheckoutPage() {
