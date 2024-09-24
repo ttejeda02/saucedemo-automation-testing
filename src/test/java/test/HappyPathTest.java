@@ -30,14 +30,14 @@ public class HappyPathTest extends BaseTest {
 
         inventoryPage.goToTheCartPage();
 
-        String cartPageUrl = loginPage.getCurrentUrl();
-
-        Assert.assertNotEquals(inventoryPage, cartPageUrl);
-
         //cart page
         CartPage cartPage = new CartPage(driver);
         cartPage.removeSauceLabsOnesieInCart();
         cartPage.goToCheckoutPage();
+
+        String[] actualProducts = cartPage.getProductInCart();
+        String[] expectedProducts = {"Sauce Labs Backpack", "Sauce Labs Bolt T-Shirt", "Sauce Labs Fleece Jacket"};
+        Assert.assertNotEquals(expectedProducts, actualProducts);
 
         //checkout page
         CheckoutPage checkoutPage = new CheckoutPage(driver);
