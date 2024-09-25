@@ -46,7 +46,7 @@ public class HappyPathTest extends BaseTest {
 
         //checkout overview page
         CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
-        Assert.assertEquals(checkoutOverviewPage.getTotal(), "103.65");
+        Assert.assertEquals(checkoutOverviewPage.getTotalPriceWithTaxes(), Double.parseDouble("103.65"));
         checkoutOverviewPage.finishCheckout();
     }
 }
