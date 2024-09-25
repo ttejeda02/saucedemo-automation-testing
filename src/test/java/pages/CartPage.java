@@ -39,6 +39,9 @@ public class CartPage {
     @FindBy (xpath = "//div[@class='cart_item_label']/a[@href='#']")
     List<WebElement> productsInCart;
 
+    @FindBy (className = "inventory_item_price")
+    List<WebElement> priceList;
+
     public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
@@ -82,5 +85,21 @@ public class CartPage {
             productInCart[i] = productsInCart.get(i).getText();
         }
         return productInCart;
+    }
+
+    public Double[] getProductsPrices() {
+        String[] productPricesStrings = new String[priceList.size()];
+        for (int i = 0; i < productPricesStrings.length; i++) {
+            productPricesStrings[i] = priceList.get(i).getText();
+        }
+
+        Double[] productPrices = new Double[productPricesStrings.length];
+        for (int i = 0; i < productPricesStrings.length; i++) {
+            String price = productPricesStrings[i];
+            price = price.replace("$", "");
+            productPrices[i] = Double.parseDouble(price);
+        }
+
+        return productPrices;
     }
 }
