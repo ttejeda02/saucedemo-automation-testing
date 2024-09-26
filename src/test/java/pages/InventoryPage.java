@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class InventoryPage {
     WebDriver driver;
@@ -33,6 +34,9 @@ public class InventoryPage {
 
     @FindBy (xpath = "//a[@data-test=\"shopping-cart-link\"]")
     WebElement cartPageButton;
+
+    @FindBy (className = "inventory_item_name")
+    List<WebElement> productsListInTheCart;
 
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
@@ -80,5 +84,14 @@ public class InventoryPage {
     private void waitForElementToBeVisible(WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public String[] getProductsListInTheCart() {
+        String[] productsInCart = new String[productsListInTheCart.size()];
+        for (int i = 0; i < productsListInTheCart.size(); i++) {
+            productsInCart[i] = productsListInTheCart.get(i).getText();
+        }
+
+        return productsInCart;
     }
 }

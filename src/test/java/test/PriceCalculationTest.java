@@ -29,7 +29,7 @@ public class PriceCalculationTest extends BaseTest {
         Assert.assertArrayEquals(expected, actualProductPrices);
     }
 
-    @Test (priority = 3)
+    @Test (priority = 2)
     public void checkTotalPricesInCheckout() {
         User user = UserCreator.createStandardUserWithUserData();
         UserActionsUtil.login(driver, user);
