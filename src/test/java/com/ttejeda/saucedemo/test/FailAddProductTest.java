@@ -1,11 +1,11 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
+import com.ttejeda.saucedemo.pages.CartPage;
+import com.ttejeda.saucedemo.pages.InventoryPage;
+import com.ttejeda.saucedemo.service.UserCreator;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.InventoryPage;
-import service.UserCreator;
 
 public class FailAddProductTest extends BaseTest{
 

@@ -1,10 +1,11 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
+import com.ttejeda.saucedemo.pages.*;
+import com.ttejeda.saucedemo.service.UserCreator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.*;
-import service.UserCreator;
+import com.ttejeda.saucedemo.pages.*;
 
 
 public class HappyPathTest extends BaseTest {

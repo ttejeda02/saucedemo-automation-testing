@@ -1,4 +1,4 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

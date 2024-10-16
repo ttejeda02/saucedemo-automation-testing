@@ -1,10 +1,10 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import service.UserCreator;
+import com.ttejeda.saucedemo.pages.LoginPage;
+import com.ttejeda.saucedemo.service.UserCreator;
 
 public class FailLoginTest extends BaseTest {
 

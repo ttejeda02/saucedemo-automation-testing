@@ -1,6 +1,6 @@
-package service;
+package com.ttejeda.saucedemo.service;
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
 
 public class UserCreator {
     private static final String TEST_USERNAME_STANDARD = "standard_user";

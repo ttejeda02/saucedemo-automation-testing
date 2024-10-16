@@ -1,7 +1,7 @@
-package pages;
+package com.ttejeda.saucedemo.pages;
 
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

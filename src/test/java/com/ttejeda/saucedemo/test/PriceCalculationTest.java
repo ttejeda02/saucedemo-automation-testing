@@ -1,11 +1,15 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
+import com.ttejeda.saucedemo.model.User;
+import com.ttejeda.saucedemo.pages.CartPage;
+import com.ttejeda.saucedemo.pages.CheckoutOverviewPage;
+import com.ttejeda.saucedemo.pages.CheckoutPage;
+import com.ttejeda.saucedemo.pages.InventoryPage;
+import com.ttejeda.saucedemo.service.UserCreator;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
-import model.User;
-import pages.*;
-import service.UserCreator;
+import com.ttejeda.saucedemo.pages.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

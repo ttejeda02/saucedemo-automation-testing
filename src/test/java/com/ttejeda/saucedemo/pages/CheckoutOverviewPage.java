@@ -1,4 +1,4 @@
-package pages;
+package com.ttejeda.saucedemo.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

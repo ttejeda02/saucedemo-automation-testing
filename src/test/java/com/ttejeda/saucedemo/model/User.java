@@ -1,4 +1,4 @@
-package model;
+package com.ttejeda.saucedemo.model;
 
 public class User {
     private String username;

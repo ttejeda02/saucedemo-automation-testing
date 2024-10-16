@@ -1,9 +1,9 @@
-package test;
+package com.ttejeda.saucedemo.test;
 
-import model.User;
+import com.ttejeda.saucedemo.model.User;
+import com.ttejeda.saucedemo.pages.InventoryPage;
 import org.openqa.selenium.WebDriver;
-import pages.InventoryPage;
-import pages.LoginPage;
+import com.ttejeda.saucedemo.pages.LoginPage;
 
 public class UserActionsUtil {
     public static void login(WebDriver driver, User user) {
