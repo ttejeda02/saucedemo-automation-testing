@@ -3,7 +3,8 @@ This repository contains automated tests designed to evaluate the main functiona
 
 ## Features
 - Login test
-- Happy path test (*login*, *products in cart* and *checkout*)
+- Positive tests (*login*, *products in cart* and *checkout*)
+- Negative tests (*login* and *product in cart*)
 
 ## Requirements
 - JDK (version 21)
@@ -16,9 +17,17 @@ cd saucedemo-automation-testing
 mvn clean install
 ```
 ## Usage
-To run the test, use the following command:
+To run the every test, use the following command:
 ```bash
 mvn test
+```
+To run the positive test suite:
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml
+```
+To run the negative test suite:
+```bash
+mvn test -Dsurefire.suiteXmlFiles=src/test/resources/negative-tests.xml
 ```
 
 ## Acknowledgments
