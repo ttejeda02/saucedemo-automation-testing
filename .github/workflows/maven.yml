@@ -13,8 +13,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  selenium-test:
-
+  setup:
     runs-on: ubuntu-latest
 
     services:
