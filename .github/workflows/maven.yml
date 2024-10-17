@@ -35,7 +35,7 @@ jobs:
 
   positive-tests:
     runs-on: ubuntu-latest
-    needs: selenium-test  # Esto asegura que se ejecute después de selenium-test
+    needs: setup
 
     steps:
       - uses: actions/checkout@v4
