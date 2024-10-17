@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite of All Negative Tests">
+
+    <test name="All Negative Test Suite">
+        <classes>
+            <class name="com.ttejeda.saucedemo.test.FailLoginTest"/>
+            <class name="com.ttejeda.saucedemo.test.FailAddProductTest"/>
+        </classes>
+    </test>
+</suite>
