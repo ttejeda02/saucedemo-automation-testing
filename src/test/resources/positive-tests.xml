@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite of All Positive Tests">
+<suite name="Suite of Positive Tests">
 
-    <test name="All Positive Test Suite">
+    <test name="Positive Test Suite">
         <classes>
             <class name="com.ttejeda.saucedemo.test.SaveProductsInCartTest"/>
             <class name="com.ttejeda.saucedemo.test.PriceCalculationTest"/>

@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite of Negative Tests">
+
+    <test name="Negative Test Suite">
+        <classes>
+            <class name="com.ttejeda.saucedemo.test.PriceCalculationTest"/>
+            <class name="com.ttejeda.saucedemo.test.SaveProductsInCartTest"/>
+            <class name="com.ttejeda.saucedemo.test.HappyPathTest"/>
+        </classes>
+    </test>
+</suite>
