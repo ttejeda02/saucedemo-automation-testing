@@ -7,11 +7,20 @@ import com.ttejeda.saucedemo.service.UserCreator;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
+
+/**
+ * Test class for Swag Labs e-shop (saucedemo) cart with the error user.
+ * Uses Selenium Webdriver for browser automation.
+ */
 public class FailAddProductTest extends BaseTest{
 
+    /**
+     * Test method that verifies the error user only add a product of three selected.
+     * Test check if only one product is in the cart.
+     */
     @Test (priority = 1)
     public void failAddAProduct(){
-        User user = UserCreator.createErrorUserWithUserData();
+        User user = UserCreator.createErrorUserWithoutUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
@@ -27,9 +36,13 @@ public class FailAddProductTest extends BaseTest{
         Assert.assertArrayEquals(expectedProductsInCar, actualProductsInCar);
     }
 
+    /**
+     * Test method that verifies the error user doesn't add any product of three selected.
+     * Test check if the cart is empty.
+     */
     @Test (priority = 2)
     public void failAddThreeProducts(){
-        User user = UserCreator.createErrorUserWithUserData();
+        User user = UserCreator.createErrorUserWithoutUserData();
         UserActionsUtil.login(driver, user);
         UserActionsUtil.saveThreeProducts(driver);
 

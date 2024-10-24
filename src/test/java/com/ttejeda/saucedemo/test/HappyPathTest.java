@@ -5,18 +5,26 @@ import com.ttejeda.saucedemo.pages.*;
 import com.ttejeda.saucedemo.service.UserCreator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.ttejeda.saucedemo.pages.*;
 
 
+/**
+ * Test class for Swag Labs e-shop (saucedemo) entire happy path.
+ * Uses Selenium Webdriver for browser automation.
+ */
 public class HappyPathTest extends BaseTest {
 
+    /**
+     * Test method that verifies the happy path of the e-shop.
+     * This test simulates typical user behavior, from login to checkout.
+     * Check the login, products in the cart and the total price.
+     */
     @Test (priority = 1)
     public void happyPathTest() {
         //login page
         LoginPage loginPage = new LoginPage(driver);
         String homePageUrl = loginPage.getCurrentUrl();
 
-        User user = UserCreator.createStandardUserWithUserData();
+        User user = UserCreator.createUserWithUserData();
         loginPage.accountLogin(user);
         String inventoryPageUrl = loginPage.getCurrentUrl();
 

@@ -2,85 +2,74 @@ package com.ttejeda.saucedemo.service;
 
 import com.ttejeda.saucedemo.model.User;
 
+
+/**
+ * Utility class to create User objects using test data.
+ */
 public class UserCreator {
-    private static final String TEST_USERNAME_STANDARD = "standard_user";
-    private static final String TEST_USERNAME_LOCKED_OUT_USER = "locked_out_user";
-    private static final String TEST_USERNAME_PROBLEM = "problem_user";
-    private static final String TEST_USERNAME_PERFORMANCE_GLITCH_USER = "performance_glitch_user";
-    private static final String TEST_USERNAME_ERROR = "error_user";
-    private static final String TEST_USERNAME_VISUAL = "visual_user";
-    private static final String TEST_PASSWORD = "secret_sauce";
-    private static final String TEST_FIRST_NAME = "John";
-    private static final String TEST_LAST_NAME = "Doe";
-    private static final Integer TEST_POSTAL_CODE = 35000;
+    private static final String TEST_USERNAME = "testdata.username";
+    private static final String TEST_PASSWORD = "testdata.password";
+    private static final String TEST_FIRST_NAME = "testdata.first.name";
+    private static final String TEST_LAST_NAME = "testdata.last.name";
+    private static final String TEST_POSTAL_CODE = "testdata.postal.code";
 
-    public static User createStandardUserWithoutUserData(){
+    //special options for negative tests
+    private static final String TEST_USERNAME_LOCKED = "testdata.username.locked";
+    private static final String TEST_USERNAME_ERROR = "testdata.username.error";
+
+    /**
+     * Creates a Standard User object based on test data read from "environment" system property (-Denvironment flag).
+     * @return User without data user instance.
+     */
+    public static User createUserWithoutUserData(){
         return new User(
-                TEST_USERNAME_STANDARD,
-                TEST_PASSWORD,
+                TestDataReader.getTestData(TEST_USERNAME),
+                TestDataReader.getTestData(TEST_PASSWORD),
                 "",
                 "",
-                0
+                ""
         );
     }
 
-    public static User createStandardUserWithUserData(){
+    /**
+     * Creates a Standard User object based on test data read from "environment" system property (-Denvironment flag).
+     * @return User with data user instance.
+     */
+    public static User createUserWithUserData(){
         return new User(
-                TEST_USERNAME_STANDARD,
-                TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
+                TestDataReader.getTestData(TEST_USERNAME),
+                TestDataReader.getTestData(TEST_PASSWORD),
+                TestDataReader.getTestData(TEST_FIRST_NAME),
+                TestDataReader.getTestData(TEST_LAST_NAME),
+                TestDataReader.getTestData(TEST_POSTAL_CODE)
         );
     }
 
-    public static User createLockedOutUserWithUserData(){
+    /**
+     * Creates a Locked User object based on test data read from "environment" system property (-Denvironment flag).
+     * @return Locked User without data user instance.
+     */
+    public static User createLockedUserWithoutUserData(){
         return new User(
-                TEST_USERNAME_LOCKED_OUT_USER,
-                TEST_PASSWORD,
+                TestDataReader.getTestData(TEST_USERNAME_LOCKED),
+                TestDataReader.getTestData(TEST_PASSWORD),
                 "",
                 "",
-                0
+                ""
         );
     }
 
-    public static User createProblemUserWithUserData(){
+    /**
+     * Creates an Error User object based on test data read from "environment" system property (-Denvironment flag).
+     * @return Error User without data user instance.
+     */
+    public static User createErrorUserWithoutUserData(){
         return new User(
-                TEST_USERNAME_PROBLEM,
-                TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
-        );
-    }
-
-    public static User createPerformanceGlitchUserWithUserData(){
-        return new User(
-                TEST_USERNAME_PERFORMANCE_GLITCH_USER,
-                TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
-        );
-    }
-
-    public static User createErrorUserWithUserData(){
-        return new User(
-                TEST_USERNAME_ERROR,
-                TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
-        );
-    }
-
-    public static User createVisualUserWithUserData(){
-        return new User(
-                TEST_USERNAME_VISUAL,
-                TEST_PASSWORD,
-                TEST_FIRST_NAME,
-                TEST_LAST_NAME,
-                TEST_POSTAL_CODE
+                TestDataReader.getTestData(TEST_USERNAME_ERROR),
+                TestDataReader.getTestData(TEST_PASSWORD),
+                "",
+                "",
+                ""
         );
     }
 }

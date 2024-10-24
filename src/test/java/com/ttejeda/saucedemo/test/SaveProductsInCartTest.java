@@ -7,11 +7,20 @@ import org.testng.annotations.Test;
 import com.ttejeda.saucedemo.pages.CartPage;
 import com.ttejeda.saucedemo.service.UserCreator;
 
+
+/**
+ * Test class for Swag Labs e-shop (saucedemo). Check the products in the cart.
+ * Uses Selenium Webdriver for browser automation.
+ */
 public class SaveProductsInCartTest extends BaseTest {
 
+    /**
+     * Test method that verifies that a product is successfully added to the cart.
+     * The test only works with one product added to the cart.
+     */
     @Test
     public void saveAProductsInTheCart() {
-        User user = UserCreator.createStandardUserWithoutUserData();
+        User user = UserCreator.createUserWithoutUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
@@ -25,9 +34,13 @@ public class SaveProductsInCartTest extends BaseTest {
         Assert.assertArrayEquals("The products don't match", expectedProducts, products);
     }
 
+    /**
+     * Test method that verifies that three products are successfully added to the cart.
+     * The test checks three products added to cart.
+     */
     @Test
     public void saveThreeProductsInTheCart() {
-        User user = UserCreator.createStandardUserWithoutUserData();
+        User user = UserCreator.createUserWithoutUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
@@ -42,9 +55,13 @@ public class SaveProductsInCartTest extends BaseTest {
         Assert.assertArrayEquals("The products doesn't match", expectedProducts, products);
     }
 
+    /**
+     * Test method that verifies the adding and removing products from the cart.
+     * The test checks that, in the end, the cart has four products.
+     */
     @Test
     public void saveSixProductsAndRemoveFourInCart () {
-        User user = UserCreator.createStandardUserWithoutUserData();
+        User user = UserCreator.createUserWithoutUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);

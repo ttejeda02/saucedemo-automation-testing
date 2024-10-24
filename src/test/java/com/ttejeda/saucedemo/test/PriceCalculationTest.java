@@ -9,16 +9,23 @@ import com.ttejeda.saucedemo.service.UserCreator;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
-import com.ttejeda.saucedemo.pages.*;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+
+/**
+ * Test class for Swag Labs e-shop (saucedemo). Check products prices.
+ * Uses Selenium Webdriver for browser automation.
+ */
 public class PriceCalculationTest extends BaseTest {
 
+    /**
+     * Test method that verifies the prices of the products in the cart.
+     * The test add products to the cart and assert the prices.
+     */
     @Test (priority = 1)
     public void pricesInCartTest() {
-        User user = UserCreator.createStandardUserWithoutUserData();
+        User user = UserCreator.createUserWithoutUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
@@ -33,9 +40,13 @@ public class PriceCalculationTest extends BaseTest {
         Assert.assertArrayEquals(expected, actualProductPrices);
     }
 
+    /**
+     * Test method that verifies the total price in the checkout page.
+     * The test add three products and check the subtotal and total of the purchase.
+     */
     @Test (priority = 2)
     public void checkTotalPricesInCheckout() {
-        User user = UserCreator.createStandardUserWithUserData();
+        User user = UserCreator.createUserWithUserData();
         UserActionsUtil.login(driver, user);
 
         InventoryPage inventoryPage = new InventoryPage(driver);
@@ -60,8 +71,13 @@ public class PriceCalculationTest extends BaseTest {
         Assert.assertEquals(expectedTotalPrice, actualTotalPrice);
     }
 
-    private Double calculatePriceWithTaxes(Double taxes) {
-        BigDecimal expectedTotalPrice = BigDecimal.valueOf(taxes + (taxes * 0.08));
+    /**
+     * Private method that calculates the total price (subtotal plus taxes)
+     * @param subTotal Purchase subtotal
+     * @return The total (subtotal plus 8% sales taxes)
+     */
+    private Double calculatePriceWithTaxes(Double subTotal) {
+        BigDecimal expectedTotalPrice = BigDecimal.valueOf(subTotal + (subTotal * 0.08));
         expectedTotalPrice = expectedTotalPrice.setScale(2, RoundingMode.UP);
         return expectedTotalPrice.doubleValue();
     }
