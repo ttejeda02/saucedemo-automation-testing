@@ -46,7 +46,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Install Dependencies
-        run: mvn install
+        run: mvn install -DskipTests
       - name: Run Positive Tests
         run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml clean test
 
@@ -63,7 +63,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Install Dependencies
-        run: mvn install
+        run: mvn install -DskipTests
       - name: Run Negative Tests
         run: mvn -Dbrowser=chrome -Denvironment=negative -Dsurefire.suiteXmlFiles=src/test/resources/negative-tests.xml clean test
 
@@ -80,7 +80,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Install Dependencies
-        run: mvn install
+        run: mvn install -DskipTests
       - name: Run Smoke Tests
         run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/smoke-tests.xml clean test
 
