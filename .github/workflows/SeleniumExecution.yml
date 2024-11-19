@@ -38,6 +38,7 @@ jobs:
     needs: setup
 
     steps:
+      - uses: actions/checkout@4
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -46,6 +47,14 @@ jobs:
           cache: maven
       - name: Install Dependencies
         run: mvn install -DskipTests
+      - name: Print working directory
+        run: |
+            echo "### Current directory:"
+            pwd
+      - name: List files in the directory
+        run: |
+          echo "### Listing files in the directory:"
+          ls -l
       - name: Run Positive Tests
         run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml clean test
 
