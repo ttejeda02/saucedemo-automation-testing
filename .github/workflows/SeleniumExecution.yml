@@ -55,8 +55,9 @@ jobs:
         run: |
           echo "### Listing files in the directory:"
           ls -l
+          ls -l src/test/resources
       - name: Run Positive Tests
-        run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml clean test
+        run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=./src/test/resources/positive-tests.xml clean test
 
   negative-tests:
     runs-on: ubuntu-latest
