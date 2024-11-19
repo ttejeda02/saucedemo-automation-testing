@@ -48,7 +48,7 @@ jobs:
       - name: Install Dependencies
         run: mvn install -DskipTests
       - name: Run Positive Tests
-        run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml clean test
+        run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=src/test/resources/positive-tests.xml -Dtest=TestNG clean test
 
   negative-tests:
     runs-on: ubuntu-latest
