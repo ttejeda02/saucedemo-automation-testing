@@ -45,17 +45,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Install Dependencies
-        run: mvn install -DskipTests
-      - name: Print working directory
-        run: |
-            echo "### Current directory:"
-            pwd
-      - name: List files in the directory
-        run: |
-          echo "### Listing files in the directory:"
-          ls -l
-          ls -l src/test/resources
       - name: Run Positive Tests
         run: mvn -Dbrowser=chrome -Denvironment=positive -Dsurefire.suiteXmlFiles=./src/test/resources/positive-tests.xml clean test
 
@@ -71,8 +60,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Install Dependencies
-        run: mvn install -DskipTests
       - name: Run Negative Tests
         run: mvn clean test -Dbrowser=chrome -Denvironment=negative -Dsurefire.suiteXmlFiles=src/test/resources/negative-tests.xml
 
@@ -88,8 +75,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Install Dependencies
-        run: mvn install -DskipTests
       - name: Run Smoke Tests
         run: mvn -Dsurefire.suiteXmlFiles=src/test/resources/smoke-tests.xml -Dbrowser=chrome -Denvironment=positive clean test
 
