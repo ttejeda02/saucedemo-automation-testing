@@ -10,6 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+
+/**
+ * This class represents the Inventory Page of the application.
+ * It contains methods that allow interaction with the elements on the Inventory page.
+ * The Inventory Page includes several "Add to Cart" buttons for different products,
+ * as well as a button to navigate to the shopping cart page.
+ */
 public class InventoryPage {
     // WebDriver instance to interact with the browser
     WebDriver driver;
