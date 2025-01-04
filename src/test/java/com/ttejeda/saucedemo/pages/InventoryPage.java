@@ -18,7 +18,7 @@ import java.util.List;
  * as well as a button to navigate to the shopping cart page.
  */
 public class InventoryPage {
-    // WebDriver instance to interact with the browser
+    // WebDriver instance
     WebDriver driver;
 
     // Web elements representing various "Add to Cart" buttons for products
