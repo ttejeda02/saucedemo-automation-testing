@@ -54,7 +54,7 @@ public class CartPage {
      */
     public CartPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(this.driver, this); // Initialize the WebElements
     }
 
     /**
