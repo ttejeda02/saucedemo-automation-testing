@@ -7,6 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+
+/**
+ * This class represents the Cart page of the Saucedemo application.
+ * It contains WebElements for removing products from the cart, as well as lists of products
+ * and their prices.
+ * It also includes buttons for navigating to the Checkout page or returning to the Inventory page.
+ * The class provides methods for interacting with the cart, such as removing items,
+ * proceeding to checkout, and navigating back to the inventory page.
+ */
+
 public class CartPage {
     // Webdriver instance
     WebDriver driver;

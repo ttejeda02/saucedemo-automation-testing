@@ -6,6 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
+/**
+ * This class represents the Checkout page in the purchasing flow of the Saucedemo application.
+ * It contains WebElements for the user's first name, last name, postal code,
+ * as well as buttons for continuing or canceling the checkout process.
+ * The class provides methods to fill out the checkout form with user details and interact
+ * with the buttons to either proceed with the checkout or cancel and return to the previous page.
+ */
 public class CheckoutPage {
     // WebDriver instance
     private WebDriver driver;

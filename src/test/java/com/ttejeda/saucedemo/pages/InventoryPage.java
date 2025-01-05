@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * This class represents the Inventory Page of the application.
+ * This class represents the Inventory Page of Saucedemo application.
  * It contains methods that allow interaction with the elements on the Inventory page.
  * The Inventory Page includes several "Add to Cart" buttons for different products,
  * as well as a button to navigate to the shopping cart page.
