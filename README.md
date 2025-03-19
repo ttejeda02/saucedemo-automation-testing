@@ -14,7 +14,7 @@ This repository contains automated tests designed to evaluate the main functiona
 ```bash
 git clone https://github.com/ttejeda02/saucedemo-automation-testing.git
 cd saucedemo-automation-testing
-mvn clean install
+mvn clean install -DskipTests
 ```
 ## Usage
 To run the **smoke test** suite:
